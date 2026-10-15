@@ -1,0 +1,1809 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#181d21">
+  <meta name="description" content="Practical engineering, maintenance and fabrication support for demanding industries across Zambia. Built for operational reliability.">
+  <title>IronPeak Engineering Solutions | Engineering, Maintenance &amp; Fabrication</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="IronPeak Engineering Solutions | Demanding Industries">
+  <meta property="og:description" content="Practical engineering, maintenance and fabrication support for businesses that depend on operational reliability.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IronPeak Engineering Solutions">
+  <meta name="twitter:description" content="Practical engineering, maintenance and fabrication support for demanding industries.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #181d21;
+      --ink-surface: #22282d;
+      --ink-soft: #2d353c;
+      --orange: #f28c28;
+      --orange-hover: #e07a1b;
+      --orange-light: #fef4ea;
+      --paper: #ffffff;
+      --mist: #f4f6f8;
+      --mist-darker: #e8ecf0;
+      --muted: #6a747d;
+      --line: #e2e6ea;
+      --line-dark: #2f373e;
+      --text-main: #1f252a;
+      --wrap: 1240px;
+      --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 45px rgba(0,0,0,0.18);
+      --radius: 3px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      background: var(--paper);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(var(--wrap), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Typography & Utilities */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    h1 em, h2 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 0;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-orange {
+      background: var(--orange);
+      color: #121517;
+    }
+    .btn-orange:hover {
+      background: var(--orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(242, 140, 40, 0.35);
+    }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #ffffff;
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+    .btn-dark {
+      background: var(--ink);
+      color: #ffffff;
+    }
+    .btn-dark:hover {
+      background: #0d1012;
+      transform: translateY(-2px);
+    }
+    .btn b {
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover b {
+      transform: translateX(3px);
+    }
+
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 86px;
+      background: #ffffff;
+      border-bottom: 1px solid #ebedf0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--ink);
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--orange);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 24px;
+      clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    }
+    .brand-text small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    nav a {
+      font-size: 13px;
+      font-weight: 600;
+      color: #434c53;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+    nav a:hover, nav a.active {
+      color: var(--orange);
+    }
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: var(--ink);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta span { color: var(--orange); }
+    .nav-cta:hover {
+      background: #0e1113;
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 24px;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 86px);
+      max-height: 860px;
+      background: #252c31 url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=85') center 48% / cover no-repeat;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(18,22,25,0.96) 0%, rgba(18,22,25,0.85) 45%, rgba(18,22,25,0.3) 100%);
+    }
+    .hero-body {
+      position: relative;
+      padding: 120px 8% 60px;
+      max-width: 900px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 5.8vw, 76px);
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      margin-bottom: 24px;
+    }
+    .hero-copy {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #d1d7db;
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-footer {
+      position: relative;
+      padding: 22px 8%;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #c7ced3;
+      text-transform: uppercase;
+      background: rgba(18,22,25,0.3);
+      backdrop-filter: blur(4px);
+    }
+    .hero-footer span:last-child {
+      color: var(--orange);
+    }
+
+    /* Sections Shared */
+    .section {
+      padding: 100px 0;
+    }
+    .section-head {
+      margin-bottom: 48px;
+    }
+    .section-head.flex {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .section-head h2 {
+      font-size: clamp(32px, 3.8vw, 48px);
+      letter-spacing: -0.03em;
+    }
+
+    /* Intro */
+    .intro {
+      background: var(--paper);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .intro-lead {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #3b444b;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .intro-body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 4px;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+    .text-link:hover {
+      color: var(--orange);
+      gap: 14px;
+    }
+
+    /* Services */
+    .services {
+      background: var(--mist);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #d0d7dd;
+    }
+    .service-card-top {
+      margin-bottom: 24px;
+    }
+    .service-index {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #a4adb4;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--orange-light);
+      color: var(--orange);
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .service-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .service-features-preview {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .service-features-preview li {
+      font-size: 12px;
+      color: #555f67;
+      padding: 6px 0;
+      border-top: 1px solid #f0f3f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-features-preview li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: bold;
+    }
+    .service-btn {
+      align-self: flex-start;
+      cursor: pointer;
+      background: none;
+      border: 0;
+    }
+
+    /* Industry Band */
+    .industry-band {
+      background: var(--ink);
+      color: #ffffff;
+      padding: 0;
+    }
+    .industry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 580px;
+    }
+    .industry-photo {
+      background: url('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80') center / cover no-repeat;
+      position: relative;
+    }
+    .industry-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 29, 33, 0.2);
+    }
+    .industry-content {
+      padding: 80px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .industry-content h2 {
+      font-size: clamp(32px, 3.5vw, 46px);
+      margin-bottom: 18px;
+    }
+    .industry-content > p {
+      color: #b7bfc4;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+    .industry-list {
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .industry-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      font-size: 15px;
+      font-weight: 600;
+      color: #e4e8eb;
+      transition: color 0.2s, padding 0.2s;
+    }
+    .industry-item:hover {
+      color: var(--orange);
+      padding-left: 8px;
+    }
+    .industry-item span:last-child {
+      color: var(--orange);
+    }
+
+    /* Projects */
+    .projects {
+      background: var(--paper);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .project-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-media {
+      position: relative;
+      height: 290px;
+      overflow: hidden;
+      background: #252a2e;
+    }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-media img {
+      transform: scale(1.04);
+    }
+    .project-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(24, 29, 33, 0.85);
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+    .project-info {
+      padding: 24px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .project-info small {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--orange);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .project-info h3 {
+      font-size: 18px;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .project-info p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .project-arrow {
+      color: var(--orange);
+      font-size: 20px;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover .project-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* Approach ("How We Think") */
+    .approach {
+      background: var(--mist);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .approach-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .approach-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: border-color 0.2s ease;
+    }
+    .approach-card:hover {
+      border-color: var(--orange);
+    }
+    .approach-num {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .approach-text h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .approach-text p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      background: #ffffff;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .about-image {
+      position: relative;
+      height: 520px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: #252a2e url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=80') center / cover no-repeat;
+    }
+    .about-content h2 {
+      font-size: clamp(32px, 3.5vw, 44px);
+      margin-bottom: 22px;
+    }
+    .about-content > p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555e66;
+      margin-bottom: 28px;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .pillar h4 {
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .pillar p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Contact / Enquiry */
+    .contact-section {
+      background: var(--mist);
+      border-top: 1px solid var(--line);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+    }
+    .contact-info {
+      padding-right: 20px;
+    }
+    .contact-info h2 {
+      font-size: clamp(32px, 3.5vw, 44px);
+      margin-bottom: 16px;
+    }
+    .contact-info > p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .contact-card small {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .contact-card b {
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    /* Form Panel */
+    .form-panel {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+    .form-tab {
+      background: none;
+      border: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .form-tab.active {
+      color: var(--ink);
+      background: var(--mist);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+    .form-field label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #4b545a;
+    }
+    .form-field label i {
+      color: var(--orange);
+      font-style: normal;
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #d4dade;
+      border-radius: var(--radius);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.15);
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-bottom {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .form-status {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      display: none;
+    }
+    .form-status.success {
+      display: block;
+      background: #e8f5e9;
+      color: #1e6930;
+      border: 1px solid #c8e6c9;
+    }
+    .form-status.error {
+      display: block;
+      background: #ffebee;
+      color: #b71c1c;
+      border: 1px solid #ffcdd2;
+    }
+
+    /* Modal / Drawer for Service & Project Deep-dive */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 22, 25, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      place-items: center;
+      padding: 24px;
+    }
+    .modal-backdrop.open {
+      display: grid;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: var(--radius);
+      width: min(780px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255,255,255,0.9);
+      border: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      color: var(--ink);
+    }
+    .modal-image {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .modal-body {
+      padding: 36px 40px;
+    }
+    .modal-body h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .modal-body .modal-category {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .modal-body p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #4b545c;
+      margin-bottom: 24px;
+    }
+    .modal-features {
+      list-style: none;
+      margin-bottom: 30px;
+      background: var(--mist);
+      padding: 20px;
+      border-radius: var(--radius);
+    }
+    .modal-features li {
+      font-size: 13px;
+      color: #3b434a;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #e2e6ea;
+    }
+    .modal-features li:last-child { border-bottom: 0; }
+    .modal-features li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: #ffffff;
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-top .brand {
+      color: #ffffff;
+    }
+    .footer-top .brand small {
+      color: #8c959b;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 12px;
+      color: #8f989e;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 980px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .industry-grid { grid-template-columns: 1fr; }
+      .industry-photo { height: 320px; order: 2; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { height: 380px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+      .approach-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { height: 72px; padding: 0 4%; }
+      .menu-toggle { display: block; }
+      nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 20px 5%;
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-md);
+        gap: 12px;
+      }
+      nav.open { display: flex; }
+      nav a { padding: 10px 0; border-bottom: 1px solid #f0f2f4; width: 100%; }
+      .nav-actions .nav-cta { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-panel { padding: 24px 20px; }
+      .hero-body { padding: 80px 4% 40px; }
+      .hero h1 { font-size: 38px; }
+      .section { padding: 70px 0; }
+      .modal-body { padding: 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="nav">
+    <a href="#" class="brand">
+      <div class="brand-mark">I</div>
+      <div class="brand-text">
+        IRONPEAK
+        <small>ENGINEERING SOLUTIONS</small>
+      </div>
+    </a>
+    <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#projects">Projects</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#enquiry" class="nav-cta">Discuss a project <span>↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-shade"></div>
+      <div class="hero-body">
+        <p class="eyebrow">ENGINEERING • MAINTENANCE • FABRICATION</p>
+        <h1>Engineering solutions<br>for <em>demanding</em> industries.</h1>
+        <p class="hero-copy">Practical engineering, maintenance and fabrication support for businesses that depend on operational reliability.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-orange">Explore our services <b>↗</b></a>
+          <a href="#enquiry" class="btn btn-ghost">Discuss a project <b>↘</b></a>
+        </div>
+      </div>
+      <div class="hero-footer">
+        <span>BUILT FOR THE WORK THAT MATTERS</span>
+        <span>LUSAKA, ZAMBIA &nbsp;↘</span>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="section intro" id="about">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div>
+            <p class="eyebrow">ENGINEERING THAT KEEPS YOU MOVING</p>
+            <h2 class="section-title">Built around your<br><em>operational reality.</em></h2>
+          </div>
+          <div>
+            <p class="intro-lead">When operations are demanding, you need a partner who understands the value of reliable equipment, considered planning and capable hands on the job.</p>
+            <p class="intro-body">IronPeak Engineering Solutions is a dedicated Zambian engineering solutions concept designed to support heavy industry, mining, manufacturing, and commercial infrastructure with dependable execution.</p>
+            <a href="#approach" class="text-link">How we think about the work ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="section-head flex">
+          <div>
+            <p class="eyebrow">HOW WE CAN SUPPORT YOU</p>
+            <h2>Practical expertise.</h2>
+          </div>
+          <a href="#enquiry" class="text-link">Enquire about a service ↗</a>
+        </div>
+
+        <div class="services-grid" id="services-container">
+          <!-- Service 1 -->
+          <article class="service-card" data-slug="mechanical-maintenance">
+            <div class="service-card-top">
+              <span class="service-index">01 / MAINTENANCE</span>
+              <div class="service-icon">⚙️</div>
+              <h3>Mechanical Maintenance</h3>
+              <p>Planned and corrective support for mechanical systems and critical equipment.</p>
+              <ul class="service-features-preview">
+                <li>Planned and corrective maintenance</li>
+                <li>Inspection and condition reporting</li>
+                <li>Shutdown task support</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('mechanical-maintenance')">Explore service <b>↗</b></button>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card" data-slug="industrial-fabrication">
+            <div class="service-card-top">
+              <span class="service-index">02 / FABRICATION</span>
+              <div class="service-icon">🏗️</div>
+              <h3>Industrial Fabrication</h3>
+              <p>Workshop fabrication concepts for structural and operational requirements.</p>
+              <ul class="service-features-preview">
+                <li>Steel structures and platforms</li>
+                <li>Repair and modification concepts</li>
+                <li>Fabrication coordination</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('industrial-fabrication')">Explore service <b>↗</b></button>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card" data-slug="equipment-servicing">
+            <div class="service-card-top">
+              <span class="service-index">03 / SERVICING</span>
+              <div class="service-icon">🔧</div>
+              <h3>Equipment Servicing</h3>
+              <p>Routine servicing support to help keep equipment ready for operation.</p>
+              <ul class="service-features-preview">
+                <li>Routine service planning</li>
+                <li>Inspection support</li>
+                <li>Maintenance records</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('equipment-servicing')">Explore service <b>↗</b></button>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card" data-slug="plant-maintenance">
+            <div class="service-card-top">
+              <span class="service-index">04 / MAINTENANCE</span>
+              <div class="service-icon">🏭</div>
+              <h3>Plant Maintenance</h3>
+              <p>Coordinated maintenance support for plant assets and operating teams.</p>
+              <ul class="service-features-preview">
+                <li>Maintenance coordination</li>
+                <li>Shutdown planning support</li>
+                <li>Work package preparation</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('plant-maintenance')">Explore service <b>↗</b></button>
+          </article>
+
+          <!-- Service 5 -->
+          <article class="service-card" data-slug="engineering-consultation">
+            <div class="service-card-top">
+              <span class="service-index">05 / CONSULTATION</span>
+              <div class="service-icon">📐</div>
+              <h3>Engineering Consultation</h3>
+              <p>Clear technical input to inform decisions, scope and project planning.</p>
+              <ul class="service-features-preview">
+                <li>Scope definition</li>
+                <li>Technical options reviews</li>
+                <li>Project planning input</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('engineering-consultation')">Explore service <b>↗</b></button>
+          </article>
+
+          <!-- Service 6 -->
+          <article class="service-card" data-slug="technical-project-support">
+            <div class="service-card-top">
+              <span class="service-index">06 / PROJECT SUPPORT</span>
+              <div class="service-icon">📊</div>
+              <h3>Technical Project Support</h3>
+              <p>Hands-on coordination and technical support from planning through delivery.</p>
+              <ul class="service-features-preview">
+                <li>Technical coordination</li>
+                <li>Progress and handover records</li>
+                <li>Stakeholder communication</li>
+              </ul>
+            </div>
+            <button class="text-link service-btn" onclick="openServiceModal('technical-project-support')">Explore service <b>↗</b></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Band -->
+    <section class="section industry-band" id="industries">
+      <div class="industry-grid">
+        <div class="industry-photo"></div>
+        <div class="industry-content">
+          <p class="eyebrow">SECTORS WE SUPPORT</p>
+          <h2>Ready for the<br>real world.</h2>
+          <p>Flexible support shaped around the environments where your people and equipment work daily.</p>
+          <div class="industry-list">
+            <div class="industry-item"><span>Mining &amp; Extraction</span><span>↗</span></div>
+            <div class="industry-item"><span>Engineering &amp; Construction</span><span>↗</span></div>
+            <div class="industry-item"><span>Manufacturing Operations</span><span>↗</span></div>
+            <div class="industry-item"><span>Industrial Processing Plants</span><span>↗</span></div>
+            <div class="industry-item"><span>Commercial Facilities &amp; Utilities</span><span>↗</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+      <div class="wrap">
+        <div class="section-head flex">
+          <div>
+            <p class="eyebrow">A VISION OF WHAT'S POSSIBLE</p>
+            <h2>Demonstration concepts.</h2>
+            <p style="color:var(--muted);font-size:14px;margin-top:6px">Illustrative portfolio concepts showcasing IronPeak's capability scope.</p>
+          </div>
+          <a href="#enquiry" class="text-link">Discuss your concept ↗</a>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card" onclick="openProjectModal('industrial-workshop-fabrication-concept')">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Industrial Workshop Fabrication Concept" loading="lazy">
+              <span class="project-badge">Concept · Fabrication</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <small>Fabrication</small>
+                <h3>Industrial Workshop Fabrication Concept</h3>
+                <p>Functional fabrication workshop layout and steelwork package.</p>
+              </div>
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" onclick="openProjectModal('heavy-equipment-maintenance-concept')">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80" alt="Heavy Equipment Maintenance Concept" loading="lazy">
+              <span class="project-badge">Concept · Maintenance</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <small>Maintenance</small>
+                <h3>Heavy Equipment Maintenance Concept</h3>
+                <p>Planned maintenance support for heavy equipment in an industrial setting.</p>
+              </div>
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" onclick="openProjectModal('plant-maintenance-planning-concept')">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80" alt="Plant Maintenance Planning Concept" loading="lazy">
+              <span class="project-badge">Concept · Project Support</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <small>Project Support</small>
+                <h3>Plant Maintenance Planning Concept</h3>
+                <p>Coordinating maintenance schedules and shutdown activities across plant assets.</p>
+              </div>
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" onclick="openProjectModal('industrial-steel-structure-concept')">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Industrial Steel Structure Concept" loading="lazy">
+              <span class="project-badge">Concept · Fabrication</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <small>Fabrication</small>
+                <h3>Industrial Steel Structure Concept</h3>
+                <p>Precision-engineered structural steel framing and load-bearing framework.</p>
+              </div>
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach Section ("How We Think") -->
+    <section class="section approach" id="approach">
+      <div class="wrap">
+        <div class="approach-grid">
+          <div>
+            <p class="eyebrow">HOW WE THINK</p>
+            <h2 style="margin-bottom:20px">Good work starts<br>with <em>good questions.</em></h2>
+            <p style="color:var(--muted);line-height:1.75;margin-bottom:28px">Our methodology is centered around minimizing downtime, prioritizing job safety, and delivering practical clarity at every step.</p>
+            <a href="#enquiry" class="btn btn-dark">Start a conversation <b>↗</b></a>
+          </div>
+          <div class="approach-steps">
+            <div class="approach-card">
+              <span class="approach-num">01</span>
+              <div class="approach-text">
+                <h4>Understand the operation, constraints and priorities</h4>
+                <p>Every facility has unique demands. We listen first, review on-site requirements, and clarify baseline objectives.</p>
+              </div>
+            </div>
+            <div class="approach-card">
+              <span class="approach-num">02</span>
+              <div class="approach-text">
+                <h4>Plan the work with safety and clear communication</h4>
+                <p>Clear milestones, safety protocols, and realistic timelines ensure expectations are aligned before tools touch materials.</p>
+              </div>
+            </div>
+            <div class="approach-card">
+              <span class="approach-num">03</span>
+              <div class="approach-text">
+                <h4>Deliver practical support and keep stakeholders informed</h4>
+                <p>Direct hands-on delivery, thorough testing, handover notes, and post-service follow-up to verify performance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Detailed Section -->
+    <section class="section about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="about-image"></div>
+          <div class="about-content">
+            <p class="eyebrow">WHO WE ARE</p>
+            <h2>Dependable thinking.<br><em>Practical engineering.</em></h2>
+            <p>IronPeak Engineering Solutions provides practical, safety-aware engineering and maintenance support shaped for demanding operating environments. We believe reliability isn't an accident—it's the direct result of rigorous planning, high standards, and open communication.</p>
+            
+            <div class="about-pillars">
+              <div class="pillar">
+                <h4>Our Mission</h4>
+                <p>To provide practical engineering and maintenance support that helps industrial teams plan and work with confidence.</p>
+              </div>
+              <div class="pillar">
+                <h4>Our Vision</h4>
+                <p>To be a premier engineering partner recognized for technical integrity and responsible delivery.</p>
+              </div>
+              <div class="pillar">
+                <h4>Safety Minded</h4>
+                <p>Zero compromises on worker health, safety standards, and environmental responsibility.</p>
+              </div>
+              <div class="pillar">
+                <h4>Continuous Improvement</h4>
+                <p>Refining processes, tools, and turnaround times through every project engagement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Enquiry Section -->
+    <section class="section contact-section" id="contact">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p class="eyebrow">LET'S TALK ABOUT THE WORK</p>
+            <h2 id="contact-heading">Discuss your project.</h2>
+            <p>Tell us what you need. Our team is ready to review your requirements, scope potential solutions, and provide practical support.</p>
+            
+            <div class="contact-card">
+              <small>HEADQUARTERS</small>
+              <b>Lusaka, Zambia</b>
+            </div>
+            <div class="contact-card">
+              <small>DIRECT INQUIRIES</small>
+              <b>hello@ironpeak.example</b>
+            </div>
+            <div class="contact-card">
+              <small>OPERATIONAL RESPONSE</small>
+              <b>Monday – Friday, 08:00 – 17:00 CAT</b>
+            </div>
+          </div>
+
+          <!-- Forms Container -->
+          <div class="form-panel" id="enquiry">
+            <div class="form-tabs">
+              <button class="form-tab active" id="tab-enquiry" onclick="switchFormTab('enquiry')">Project Enquiry</button>
+              <button class="form-tab" id="tab-quick" onclick="switchFormTab('quick')">General Message</button>
+            </div>
+
+            <!-- Project Enquiry Form -->
+            <form id="enquiry-form">
+              <!-- Honeypot -->
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+              
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="enq-name">Your Name <i>*</i></label>
+                  <input type="text" id="enq-name" name="name" required placeholder="Full name">
+                </div>
+                <div class="form-field">
+                  <label for="enq-company">Company Name <i>*</i></label>
+                  <input type="text" id="enq-company" name="companyName" required placeholder="Company name">
+                </div>
+                <div class="form-field">
+                  <label for="enq-email">Business Email <i>*</i></label>
+                  <input type="email" id="enq-email" name="email" required placeholder="name@company.com">
+                </div>
+                <div class="form-field">
+                  <label for="enq-phone">Phone Number <i>*</i></label>
+                  <input type="tel" id="enq-phone" name="phone" required placeholder="+260 …">
+                </div>
+                <div class="form-field">
+                  <label for="enq-service">Service Category <i>*</i></label>
+                  <select id="enq-service" name="serviceCategory" required>
+                    <option value="Mechanical Maintenance">Mechanical Maintenance</option>
+                    <option value="Industrial Fabrication">Industrial Fabrication</option>
+                    <option value="Equipment Servicing">Equipment Servicing</option>
+                    <option value="Plant Maintenance">Plant Maintenance</option>
+                    <option value="Engineering Consultation">Engineering Consultation</option>
+                    <option value="Technical Project Support">Technical Project Support</option>
+                    <option value="Other / Multiple Categories">Other / Multiple Categories</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="enq-location">Project Location</label>
+                  <input type="text" id="enq-location" name="projectLocation" placeholder="Town / Site area">
+                </div>
+                <div class="form-field full">
+                  <label for="enq-details">Project Details <i>*</i></label>
+                  <textarea id="enq-details" name="projectDescription" required placeholder="A brief summary of the operational requirements, scope, or challenges…"></textarea>
+                </div>
+                <div class="form-field">
+                  <label for="enq-timeframe">Expected Timeframe</label>
+                  <input type="text" id="enq-timeframe" name="expectedTimeframe" placeholder="e.g. Within 60 days, Immediate shutdown">
+                </div>
+                <div class="form-field">
+                  <label for="enq-contact-method">Preferred Contact</label>
+                  <select id="enq-contact-method" name="additionalRequirements">
+                    <option value="Preferred Contact: Email">Email</option>
+                    <option value="Preferred Contact: Phone Call">Phone Call</option>
+                    <option value="Preferred Contact: Site Visit">Site Visit Discussion</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="enquiry-status" class="form-status"></div>
+
+              <div class="form-bottom">
+                <small style="color:var(--muted);font-size:12px">Submissions are saved directly to the IronPeak demonstration database.</small>
+                <button type="submit" class="btn btn-orange" id="enquiry-submit-btn">Send enquiry <b>↗</b></button>
+              </div>
+            </form>
+
+            <!-- Quick General Contact Form -->
+            <form id="quick-form" style="display:none">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+              
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="contact-name">Your Name <i>*</i></label>
+                  <input type="text" id="contact-name" name="name" required placeholder="Full name">
+                </div>
+                <div class="form-field">
+                  <label for="contact-company">Company <i>*</i></label>
+                  <input type="text" id="contact-company" name="companyName" required placeholder="Company name">
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">Business Email <i>*</i></label>
+                  <input type="email" id="contact-email" name="email" required placeholder="name@company.com">
+                </div>
+                <div class="form-field">
+                  <label for="contact-phone">Phone</label>
+                  <input type="tel" id="contact-phone" name="phone" placeholder="+260 …">
+                </div>
+                <div class="form-field full">
+                  <label for="contact-subject">Subject <i>*</i></label>
+                  <input type="text" id="contact-subject" name="subject" required placeholder="How can we help?">
+                </div>
+                <div class="form-field full">
+                  <label for="contact-message">Message <i>*</i></label>
+                  <textarea id="contact-message" name="message" required placeholder="Your message…"></textarea>
+                </div>
+              </div>
+
+              <div id="quick-status" class="form-status"></div>
+
+              <div class="form-bottom">
+                <small style="color:var(--muted);font-size:12px">We reply to general inquiries within 24 business hours.</small>
+                <button type="submit" class="btn btn-orange" id="quick-submit-btn">Send message <b>↗</b></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Detail Modal -->
+  <div class="modal-backdrop" id="detail-modal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close dialog">✕</button>
+      <img id="modal-img" class="modal-image" src="" alt="Detail view">
+      <div class="modal-body">
+        <span class="modal-category" id="modal-cat"></span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <ul class="modal-features" id="modal-features"></ul>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <button class="btn btn-orange" id="modal-action-btn" onclick="enquireFromModal()">Enquire about this ↗</button>
+          <button class="btn btn-ghost" style="color:var(--ink);border-color:var(--line)" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="#" class="brand">
+          <div class="brand-mark">I</div>
+          <div class="brand-text">
+            IRONPEAK
+            <small>ENGINEERING SOLUTIONS</small>
+          </div>
+        </a>
+        <p style="color:#a6b0b7;font-size:14px">Practical engineering for demanding industries across Zambia.</p>
+        <a href="#enquiry" class="btn btn-orange">Discuss a project ↗</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 IronPeak Engineering Solutions Ltd · Fictional portfolio concept by Mawu Creatives</span>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#industries">Industries</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Embedded Service Data for Instant First Paint with Zero Spinner Delays
+    const servicesData = {
+      'mechanical-maintenance': {
+        title: 'Mechanical Maintenance',
+        category: 'Maintenance',
+        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80',
+        desc: 'Practical mechanical maintenance support designed around your operating priorities. Scope can include inspections, fault diagnosis, planned maintenance tasks and clear handover notes. All examples are illustrative and subject to site requirements.',
+        features: ['Planned and corrective maintenance', 'Inspection and condition reporting', 'Shutdown task support', 'Wear component replacement', 'Detailed handover records']
+      },
+      'industrial-fabrication': {
+        title: 'Industrial Fabrication',
+        category: 'Fabrication',
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80',
+        desc: 'Fabrication support for industrial components and steelwork, from early scope discussion through fabrication planning and quality checks. Final scope, materials and standards depend on project requirements.',
+        features: ['Steel structures and platforms', 'Repair and modification concepts', 'Fabrication coordination', 'Certified welding inspections', 'Toleranced layout verification']
+      },
+      'equipment-servicing': {
+        title: 'Equipment Servicing',
+        category: 'Servicing',
+        image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=80',
+        desc: 'A considered approach to equipment servicing that supports reliability and safe operation, including service planning, inspections and maintenance records.',
+        features: ['Routine service planning', 'Inspection support', 'Maintenance records', 'Fluid and filter cycles', 'Vibration check benchmarks']
+      },
+      'plant-maintenance': {
+        title: 'Plant Maintenance',
+        category: 'Maintenance',
+        image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1000&q=80',
+        desc: 'Plant maintenance support that helps teams coordinate work scopes, schedules, resources and handovers across operating environments.',
+        features: ['Maintenance coordination', 'Shutdown planning support', 'Work package preparation', 'Safety protocol alignment', 'Asset condition audits']
+      },
+      'engineering-consultation': {
+        title: 'Engineering Consultation',
+        category: 'Consultation',
+        image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1000&q=80',
+        desc: 'Engineering consultation for early stage scoping, options reviews and technical project discussions. Specialist professional sign-off is provided only where separately agreed and appropriately qualified.',
+        features: ['Scope definition', 'Technical options reviews', 'Project planning input', 'Cost and risk estimations', 'Equipment specification guidance']
+      },
+      'technical-project-support': {
+        title: 'Technical Project Support',
+        category: 'Project Support',
+        image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1000&q=80',
+        desc: 'Flexible project support to help clarify deliverables, coordinate stakeholders and maintain clear technical communication throughout the project lifecycle.',
+        features: ['Technical coordination', 'Progress and handover records', 'Stakeholder communication', 'QA checklist execution', 'Vendor alignment']
+      }
+    };
+
+    // Embedded Projects Data
+    const projectsData = {
+      'industrial-workshop-fabrication-concept': {
+        title: 'Industrial Workshop Fabrication Concept',
+        category: 'Fabrication',
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+        desc: 'Illustrative concept for a functional fabrication workshop layout and steelwork package. Includes overhead crane gantry specifications, heavy assembly bays, and ventilation extraction considerations. Fictional portfolio content; no client work is implied.',
+        features: ['Heavy structural steel framing', 'Crane beam deflection tolerances', 'Optimized assembly staging', 'Safety interlock zones']
+      },
+      'heavy-equipment-maintenance-concept': {
+        title: 'Heavy Equipment Maintenance Concept',
+        category: 'Maintenance',
+        image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
+        desc: 'A fictional visual concept exploring planned maintenance support for heavy equipment in an industrial mining environment. Focuses on scheduled component overhaul intervals, hydraulic testing, and fast-turnaround field repairs.',
+        features: ['Hydraulic pressure diagnostics', 'Transmission rebuild staging', 'Track and chassis integrity checks', 'Condition telemetry logbooks']
+      },
+      'plant-maintenance-planning-concept': {
+        title: 'Plant Maintenance Planning Concept',
+        category: 'Project Support',
+        image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80',
+        desc: 'Illustrative planning concept for coordinating maintenance activities across plant assets. Explores shutdown critical-path scheduling, contractor mobilization, and lock-out tag-out verification workflows.',
+        features: ['Critical-path shutdown Gantt', 'Contractor briefing protocols', 'Critical spares staging', 'Zero-leak recommissioning tests']
+      },
+      'industrial-steel-structure-concept': {
+        title: 'Industrial Steel Structure Concept',
+        category: 'Fabrication',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+        desc: 'Fictional steel structure concept used to demonstrate the IronPeak portfolio presentation. Explores high-strength bolted connections, corrosive environment coatings, and seismic stability bracing.',
+        features: ['High-tensile steel assemblies', 'Anti-corrosive primer & topcoat', 'Modular truss fabrication', 'Foundation anchor coordination']
+      }
+    };
+
+    // Mobile Navigation Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      menuBtn.textContent = isOpen ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    // Form Tabs
+    let currentSelectedService = '';
+    function switchFormTab(type) {
+      const enqForm = document.getElementById('enquiry-form');
+      const qkForm = document.getElementById('quick-form');
+      const tabEnq = document.getElementById('tab-enquiry');
+      const tabQk = document.getElementById('tab-quick');
+      const heading = document.getElementById('contact-heading');
+
+      if (type === 'enquiry') {
+        enqForm.style.display = 'block';
+        qkForm.style.display = 'none';
+        tabEnq.classList.add('active');
+        tabQk.classList.remove('active');
+        heading.textContent = 'Discuss your project.';
+      } else {
+        enqForm.style.display = 'none';
+        qkForm.style.display = 'block';
+        tabEnq.classList.remove('active');
+        tabQk.classList.add('active');
+        heading.textContent = 'Get in touch with us.';
+      }
+    }
+
+    // Modal Details
+    const modal = document.getElementById('detail-modal');
+    function openServiceModal(slug) {
+      const data = servicesData[slug];
+      if (!data) return;
+      currentSelectedService = data.title;
+      document.getElementById('modal-img').src = data.image;
+      document.getElementById('modal-cat').textContent = data.category;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-desc').textContent = data.desc;
+      
+      const featList = document.getElementById('modal-features');
+      featList.innerHTML = '';
+      data.features.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = f;
+        featList.appendChild(li);
+      });
+      document.getElementById('modal-action-btn').textContent = 'Enquire about this service ↗';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openProjectModal(slug) {
+      const data = projectsData[slug];
+      if (!data) return;
+      currentSelectedService = data.title;
+      document.getElementById('modal-img').src = data.image;
+      document.getElementById('modal-cat').textContent = 'Project Concept · ' + data.category;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-desc').textContent = data.desc;
+
+      const featList = document.getElementById('modal-features');
+      featList.innerHTML = '';
+      data.features.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = f;
+        featList.appendChild(li);
+      });
+      document.getElementById('modal-action-btn').textContent = 'Discuss similar concept ↗';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target === modal) closeModal();
+    }
+
+    function enquireFromModal() {
+      closeModal();
+      switchFormTab('enquiry');
+      const select = document.getElementById('enq-service');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === currentSelectedService) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    // Form Submissions
+    document.getElementById('enquiry-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('enquiry-status');
+      const submitBtn = document.getElementById('enquiry-submit-btn');
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting…';
+      status.className = 'form-status';
+      status.style.display = 'none';
+
+      const payload = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch('/api/enquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({ message: 'Unexpected server response.' }));
+
+        if (!res.ok) {
+          throw new Error(data.message || 'Unable to submit enquiry.');
+        }
+
+        status.className = 'form-status success';
+        status.textContent = data.message || 'Thank you! Your enquiry has been received.';
+        form.reset();
+      } catch (err) {
+        status.className = 'form-status error';
+        status.textContent = err.message || 'An error occurred while submitting. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send enquiry <b>↗</b>';
+      }
+    });
+
+    document.getElementById('quick-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('quick-status');
+      const submitBtn = document.getElementById('quick-submit-btn');
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending…';
+      status.className = 'form-status';
+      status.style.display = 'none';
+
+      const payload = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({ message: 'Unexpected response.' }));
+
+        if (!res.ok) {
+          throw new Error(data.message || 'Could not send message.');
+        }
+
+        status.className = 'form-status success';
+        status.textContent = data.message || 'Thank you! Your message has been sent.';
+        form.reset();
+      } catch (err) {
+        status.className = 'form-status error';
+        status.textContent = err.message || 'An error occurred. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send message <b>↗</b>';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.env
+data/*.sqlite*
+frontend
+backend
+.git
+.github
+.angular

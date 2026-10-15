@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: ironpeak-engineering
+    env: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: TRUST_PROXY
+        value: "1"
+      - key: ADMIN_TOKEN
+        generateValue: true
+    disk:
+      name: ironpeak-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
